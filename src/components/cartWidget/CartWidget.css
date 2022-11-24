@@ -1,0 +1,7 @@
+.container-cart{
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
