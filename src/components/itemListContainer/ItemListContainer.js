@@ -1,18 +1,73 @@
+import { useState, useEffect } from "react";
+import Counter from "../counter/Counter";
 
-import React from 'react'
+import "./ItemListContainer.css";
+// import CustomButton from "../customButton/CustomButton"
 
-const ItemListContainer = ( { greeting } ) => {
+import { products } from "../../productsMock";
 
-    //  const { hola, chau } = props
+import ProductsCard from "../productsCard/ProductsCard";
 
-    // console.log(hola)
-    // console.log(chau)
-    
+const ItemListContainer = ({ greeting }) => {
+  // FLAG o BANDERA
+  const [isDark, setIsDark] = useState(false);
+  const [num, setNum] = useState(0);
+
+  const [items, setItems] = useState([]);
+
+  const tooggleMode = () => {
+    setIsDark(!isDark);
+  };
+
+  // useEffect( ()=>{
+  //   console.log( "hola dentro del primer efecto")
+  // })
+
+  // useEffect( ()=>{
+  //   console.log("hola desde el efecto con array de dependencia vacio")
+  // } , []) // ARREGLO DE DEPENDENCIAS VACIO
+
+  // useEffect( ()=>{
+  //   console.log("hola desde el efecto con array de dependencia a la escucha de NUM")
+  // } , [ num ]) // ARREGLO DE DEPENDENCIAS
+
+  const onAdd = () => {
+    console.log("hola");
+  };
+
+  useEffect(() => {
+    const task = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(products);
+      }, 2000);
+    });
+
+    task
+      .then((res) => {
+        setItems(res);
+      })
+      .catch((err) => {
+        console.log("se rechazo");
+      });
+
+    console.log("se hizo la peticion");
+  }, []);
+
+  console.log(items);
+
   return (
-    <div>
-        <h2>{greeting}</h2>
-    </div>
-  )
-}
+    <div className={isDark ? "dark" : "light"}>
+    
 
-export default ItemListContainer
+      {items.map((element) => {
+        return (
+          <ProductsCard key={element.name} element={element} />
+        );
+      })}
+
+      {/* <ItemList items={item}/> */}
+    </div>
+  );
+};
+
+export default ItemListContainer;
