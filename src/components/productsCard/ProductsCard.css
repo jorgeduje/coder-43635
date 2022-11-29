@@ -1,0 +1,16 @@
+
+.card{
+    width: 200px;
+    height: 300px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid grey;
+}
+
+
+
+.card > img{
+    width: 100%;
+}

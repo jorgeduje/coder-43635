@@ -1,26 +1,24 @@
-
 // HOOK ---> estado = useState
 
-import { useState } from "react"
 
-const CustomButton = ({ texto, counter, setCounter }) => {
-
-    const sumar = ()=>{
-        setCounter( counter + 1)
-    }
+const CustomButton = ({ texto, counter, setCounter, onAdd }) => {
+  const increment = () => {
+    setCounter(counter + 1)
+  }
+  const decrement = () => {
+    setCounter(counter + 1)
+  }
 
   return (
-
     <>
-      <button onClick={sumar}>{texto}</button>
-      {/* <h2>{counter}</h2> */}
+      <button onClick={ increment }>+</button>
+      <button onClick={ decrement }>-</button>
+      <button onClick={()=>onAdd(counter)}>agregar al carrito</button>
     </>
+  )
+}
 
-  );
-};
-
-export default CustomButton;
-
+export default CustomButton
 
 // let palabras = ["hola", "chau", "casa"]
 
@@ -29,4 +27,3 @@ export default CustomButton;
 // // let tercera = palabras[2]
 
 // let [ primera, x , tercera ] = palabras
-

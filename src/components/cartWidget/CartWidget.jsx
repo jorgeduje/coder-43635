@@ -12,9 +12,10 @@ export const CartWidget = () => {
           fontSize: "2rem",
           color: "black",
         }}
-        //   size={40}
-        // color="red"
       />
+      <div className="bubble-counter">
+        <span>12</span>
+      </div>
     </div>
   );
 };
