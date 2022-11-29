@@ -1,7 +1,7 @@
 
-import "./ProductsCard.css"
+import "./Item.css"
 
-const ProductsCard = ({element}) => {
+const Item = ({element}) => {
 
 
   return (
@@ -9,8 +9,9 @@ const ProductsCard = ({element}) => {
       <h2>{element.name}</h2>
       <img src={element.img} alt="" />
       <h3>${element.price}</h3>
+      <h4>Ver detalle</h4>
     </div>
   );
 };
 
-export default ProductsCard;
+export default Item;

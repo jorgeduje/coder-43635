@@ -5,16 +5,14 @@ import "./ItemListContainer.css"
 import { products } from "../../productsMock"
 
 import ItemList from "../itemList/ItemList"
-import Counter from "../counter/Counter"
+import ItemCount from "../itemCount/ItemCount"
 
 const ItemListContainer = () => {
   // FLAG o BANDERA
 
   const [items, setItems] = useState([])
 
-  const onAdd = ( quantity ) => {
-    console.log("la cantidad es: ", quantity)
-  }
+  
 
   useEffect(() => {
     const task = new Promise((resolve, reject) => {
@@ -36,7 +34,7 @@ const ItemListContainer = () => {
 
   return (
     <div className="light">
-      <Counter onAdd={onAdd} />
+      <ItemCount initial={1} stock={7}/>
       <ItemList items={items} />
     </div>
   )
