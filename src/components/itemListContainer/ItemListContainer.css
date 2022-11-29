@@ -1,0 +1,13 @@
+
+.light{
+    width: 100%;
+    min-height: 50vh;
+    color: black;
+}
+
+.dark{
+    width: 100%;
+    min-height: 50vh;
+    background-color: black;
+    color: white;
+}

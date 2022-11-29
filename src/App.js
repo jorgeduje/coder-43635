@@ -8,13 +8,11 @@ function App() {
   return (
     <div>
       <Navbar />
-      <ItemListContainer greeting={"Hola jorge como estas"} />
+      <ItemListContainer />
     </div>
   );
   
 }
 
 export default App;
-
-
 

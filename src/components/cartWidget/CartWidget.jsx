@@ -2,6 +2,8 @@
 
 import "./CartWidget.css"
 import { BsFillCartCheckFill } from "react-icons/bs";
+
+
 export const CartWidget = () => {
   return (
     <div className="container-cart">
@@ -10,9 +12,10 @@ export const CartWidget = () => {
           fontSize: "2rem",
           color: "black",
         }}
-        //   size={40}
-        // color="red"
       />
+      <div className="bubble-counter">
+        <span>12</span>
+      </div>
     </div>
   );
 };
