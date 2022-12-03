@@ -8,11 +8,9 @@ import ItemList from "../itemList/ItemList"
 import ItemCount from "../itemCount/ItemCount"
 
 const ItemListContainer = () => {
-  // FLAG o BANDERA
 
   const [items, setItems] = useState([])
 
-  
 
   useEffect(() => {
     const task = new Promise((resolve, reject) => {
