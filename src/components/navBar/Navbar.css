@@ -11,7 +11,7 @@
     width: 10%;
 }
 
-.container-logo > img{
+.logo-navbar{
     width: 80%;
     height: 10vh;
     object-fit: cover;

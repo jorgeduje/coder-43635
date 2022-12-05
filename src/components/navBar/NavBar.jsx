@@ -11,11 +11,13 @@ const NavBar = () => {
   return (
     <div className="navbar-container">
       <div className="container-logo">
+        <Link to="/">
         <img
           className="logo-navbar"
           src="https://res.cloudinary.com/dnqfh2chg/image/upload/v1669326932/free-metcon-4-zapatillas-de-entrenamiento-TQMCZg_fvia3m.png"
           alt=""
-        />
+          />
+          </Link>
       </div>
       <ul className="navbar">
         <Link className="navbar-item" to="/" >Todas</Link>
