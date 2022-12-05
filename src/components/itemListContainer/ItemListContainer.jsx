@@ -7,18 +7,22 @@ import { products } from "../../productsMock"
 import ItemList from "../itemList/ItemList"
 import ItemCount from "../itemCount/ItemCount"
 
+import { useParams } from "react-router-dom"
+
 const ItemListContainer = () => {
-  // FLAG o BANDERA
+  const { categoryName } = useParams()
 
   const [items, setItems] = useState([])
 
-  
-
   useEffect(() => {
+    const productosFiltered = products.filter(
+      (productos) => productos.category === categoryName
+    )
+
     const task = new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(products)
-      }, 2000)
+        resolve(categoryName ? productosFiltered : products)
+      }, 500)
     })
 
     task
@@ -29,12 +33,11 @@ const ItemListContainer = () => {
         console.log("se rechazo")
       })
 
-    console.log("se hizo la peticion")
-  }, [])
+  }, [categoryName])
 
   return (
     <div className="light">
-      <ItemCount initial={1} stock={7}/>
+      <ItemCount initial={1} stock={7} />
       <ItemList items={items} />
     </div>
   )

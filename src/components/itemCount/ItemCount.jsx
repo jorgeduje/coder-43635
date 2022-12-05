@@ -31,3 +31,7 @@ const Counter = ({ stock, initial }) => {
 }
 
 export default Counter
+
+
+// condicion ? "aca lo true" : null
+// condicion && "aca lo true"
