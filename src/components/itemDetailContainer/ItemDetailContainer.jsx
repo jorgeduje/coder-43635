@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { products } from '../../productsMock'
 
 import { useParams } from "react-router-dom"
+import ItemDetail from '../itemDetail/ItemDetail'
 
 const ItemDetailContainer = () => {
 
@@ -20,9 +21,7 @@ const ItemDetailContainer = () => {
 
   return (
     <div>
-        <h2>{product.name}</h2>
-        <h2>{product.price}</h2>
-        <h2>{product.description}</h2>
+       <ItemDetail product={ product } />
     </div>
   )
 }

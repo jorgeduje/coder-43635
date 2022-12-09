@@ -22,7 +22,6 @@ function App() {
         
         <Route path="/category/:categoryName" element={<ItemListContainer />} />
 
-        <Route path="/category" element={<ItemListContainer />}/>
 
         <Route path="/itemDetail/:id" element={ <ItemDetailContainer /> } />
 
@@ -40,9 +39,3 @@ function App() {
 }
 
 export default App;
-
-{/* <div>
-<Navbar />
-<ItemListContainer />
-<ItemDetailContainer />
-</div> */}

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom"
 export const CartWidget = () => {
   return (
     <div className="container-cart">
-        <Link to="/cart" >
+      <Link to="/cart">
         <BsFillCartCheckFill
           style={{
             fontSize: "2rem",
@@ -17,7 +17,7 @@ export const CartWidget = () => {
         <div className="bubble-counter">
           <span>12</span>
         </div>
-    </Link>
-      </div>
+      </Link>
+    </div>
   )
 }
