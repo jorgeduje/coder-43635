@@ -7,6 +7,11 @@ import { products } from "../../productsMock"
 import ItemList from "../itemList/ItemList"
 
 import { useParams } from "react-router-dom"
+import AccordionMui from "../accordionMui/AccordionMui"
+import CustomLoader from "../customLoader/CustomLoader"
+
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import KeyIcon from '@mui/icons-material/Key';
 
 const ItemListContainer = () => {
   const { categoryName } = useParams()
@@ -21,7 +26,7 @@ const ItemListContainer = () => {
     const getProducts = new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(categoryName ? productosFiltered : products)
-      }, 500)
+      }, 5000)
     })
 
     getProducts
@@ -36,8 +41,14 @@ const ItemListContainer = () => {
 
   return (
     <div className="light">
+
+      { items.length > 0 ? <ItemList items={items} /> : <CustomLoader /> }
       
-      <ItemList items={items} />
+      <AccordionMui />
+
+      <ShoppingCartOutlinedIcon fontSize="large"  color="success" />
+      <KeyIcon />
+
     </div>
   )
 }
