@@ -1,6 +1,7 @@
 import { useState } from "react"
 
-const Counter = ({ stock, initial }) => {
+const ItemCount = ({ stock, initial = 1, onAdd }) => {
+
   const [counter, setCounter] = useState(initial)
 
   const increment = () => {
@@ -15,10 +16,6 @@ const Counter = ({ stock, initial }) => {
     }
   }
 
-  const onAdd = ( quantity ) => {
-    console.log("la cantidad es: ", quantity)
-  }
-
   return (
     <div>
       <h2>{counter}</h2>
@@ -30,7 +27,7 @@ const Counter = ({ stock, initial }) => {
   )
 }
 
-export default Counter
+export default ItemCount
 
 
 // condicion ? "aca lo true" : null
