@@ -1,21 +1,22 @@
 .navbar-container{
     width: 100%;
     height: 10vh;
-    background-color: lightblue;
+    /* background-color: lightblue; */
     display: flex;
     justify-content: space-between;
+    box-shadow: 10px 0px 10px 1px #7F669D;
+    
 }
 
 
 .container-logo{
     width: 10%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.logo-navbar{
-    width: 80%;
-    height: 10vh;
-    object-fit: cover;
-}
 
 .navbar{
     width: 70%;
@@ -23,6 +24,9 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+}
+.logo-navbar{
+    color: #7F669D;
 }
 
 
@@ -33,8 +37,10 @@
     /* box-shadow: 2px 2px 2px 2px grey; */
     padding: 7px 10px;
     border-radius: 10px;
-    background-color: #e1d4c7;
     text-align: center;
+    text-decoration: none;
+    color: #7F669D;
+    font-weight: bold;
 }
 
 .container-cart{

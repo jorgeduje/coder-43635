@@ -1,7 +1,8 @@
+import { Button } from "@mui/material"
 import { useState } from "react"
+import "./ItemCount.css"
 
 const ItemCount = ({ stock, initial = 1, onAdd }) => {
-
   const [counter, setCounter] = useState(initial)
 
   const increment = () => {
@@ -17,18 +18,24 @@ const ItemCount = ({ stock, initial = 1, onAdd }) => {
   }
 
   return (
-    <div>
-      <h2>{counter}</h2>
-
-      <button onClick={increment}>+</button>
-      <button onClick={decrement}>-</button>
-      <button onClick={() => onAdd(counter)}>agregar al carrito</button>
+    <div className="container-btn">
+      <h2>Cantidad: {counter}</h2>
+      <div className="btns">
+        <Button variant="outlined" onClick={increment}>
+          +
+        </Button>
+        <Button variant="contained" onClick={() => onAdd(counter)}>
+          agregar al carrito
+        </Button>
+        <Button variant="outlined" onClick={decrement}>
+          -
+        </Button>
+      </div>
     </div>
   )
 }
 
 export default ItemCount
-
 
 // condicion ? "aca lo true" : null
 // condicion && "aca lo true"

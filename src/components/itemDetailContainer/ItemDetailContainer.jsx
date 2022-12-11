@@ -5,6 +5,7 @@ import { products } from '../../productsMock'
 
 import { useParams } from "react-router-dom"
 import ItemDetail from '../itemDetail/ItemDetail'
+import "./ItemDetailContainer.css"
 
 const ItemDetailContainer = () => {
 
@@ -20,7 +21,7 @@ const ItemDetailContainer = () => {
   }, [id])
 
   return (
-    <div>
+    <div className='container-detail'>
        <ItemDetail product={ product } />
     </div>
   )

@@ -1,40 +1,39 @@
-import React, { useContext } from 'react'
-import { CartContext } from '../../context/CartContext'
-import ItemCount from '../itemCount/ItemCount'
-import swal from 'sweetalert'
+import React, { useContext } from "react"
+import { CartContext } from "../../context/CartContext"
+import ItemCount from "../itemCount/ItemCount"
+import swal from "sweetalert"
+import styles from "./ItemDetail.module.css"
 
-const ItemDetail = ( { product } ) => {
+const ItemDetail = ({ product }) => {
+  const { addToCart } = useContext(CartContext)
 
-  const { addToCart } = useContext( CartContext )
+  const onAdd = (quantity) => {
+    addToCart({
+      ...product,
+      quantity: quantity,
+    })
 
-  const onAdd = ( quantity ) => {
-    
-    addToCart(
-      {
-        ...product,
-        quantity: quantity
-      }
-    )
-    
     swal({
       title: "Operacion Exitosa!",
       text: "Agregaste un producto al carrito!",
       icon: "success",
       button: "Ok",
-    });
+    })
   }
 
-  
   return (
-    <div>
-      <div style={{border: "2px solid black"}} onClick={()=>console.log("le di click al div")} >
-          <h2>{product.name}</h2>
-          <h2>{product.price}</h2>
-          <h2>{product.description}</h2>
+    <div className={styles.containerItemDetail}>
+      <div className={styles.containerImage}>
+        <img src={product.img} alt="" />
       </div>
 
-      <ItemCount onAdd={onAdd} stock={product.stock} />
+      <div className={styles.containerDetail}>
+          <h2 style={{fontFamily: "monospace"}}><span style={{fontSize:"23px"}}>Nombre:</span> {product.name}</h2>
+          <h2 style={{fontFamily: "monospace"}}><span style={{fontSize:"23px"}}>Descripcion:</span> {product.description}</h2>
+          <h2 style={{fontFamily: "monospace"}}><span style={{fontSize:"23px"}}>Precio:</span> ${product.price}.-</h2>
 
+        <ItemCount onAdd={onAdd} stock={product.stock} />
+      </div>
     </div>
   )
 }

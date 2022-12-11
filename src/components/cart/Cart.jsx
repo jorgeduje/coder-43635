@@ -2,6 +2,7 @@
 import { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 import swal from 'sweetalert'
+import "./Cart.css"
 
 const Cart = () => {
 
@@ -30,7 +31,7 @@ const Cart = () => {
    }
 
   return (
-    <div>
+    <div className='cart-container'>
       {
         cart.map( item => (
           <div key={item.id} >
@@ -42,7 +43,7 @@ const Cart = () => {
       }
 
       <div>
-        <h2 style={{ fontFamily: 'Rubik Storm'}}>Quieres limpiar el carrito</h2>
+        <h2>Quieres limpiar el carrito</h2>
         <button onClick={()=> limpiar()} >Si, limpiar carrito</button>
       </div>
     </div>
