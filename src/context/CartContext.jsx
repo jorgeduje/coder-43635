@@ -9,17 +9,13 @@ const CartContextProvider = ({ children }) => {
   const addToCart = (element) => {
     if (isInCart(element)) {
       let newArray = cart.map((product) => {
-        // [{}, {}, ]
         if (product.id === element.id) {
           let newProduct = {
             ...product,
             quantity: product.quantity + element.quantity,
           }
           return newProduct
-          // return {
-          //   ...product,
-          //   quantity: product.quantity + element.quantity,
-          // }
+          
         } else {
           return product
         }

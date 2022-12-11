@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 import ItemCount from '../itemCount/ItemCount'
+import swal from 'sweetalert'
 
 const ItemDetail = ( { product } ) => {
 
@@ -8,21 +9,19 @@ const ItemDetail = ( { product } ) => {
 
   const onAdd = ( quantity ) => {
     
-    //   addToCart( {
-    //     todo lo que tiene mi Producto ,
-    //     cantidad: quantity
-    //   }
-    // )
-
     addToCart(
       {
         ...product,
         quantity: quantity
       }
     )
-
     
-
+    swal({
+      title: "Operacion Exitosa!",
+      text: "Agregaste un producto al carrito!",
+      icon: "success",
+      button: "Ok",
+    });
   }
 
   

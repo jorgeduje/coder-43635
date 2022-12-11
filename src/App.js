@@ -4,10 +4,10 @@ import ItemListContainer from "./components/itemListContainer/ItemListContainer"
 import Navbar from "./components/navBar/NavBar"
 
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Form from "./components/form/Form";
 import Cart from "./components/cart/Cart";
 
 import CartContextProvider from "./context/CartContext";
+import Form from "./components/form/Form";
 
 
 function App() {
