@@ -1,50 +1,53 @@
-
-import { useContext } from 'react'
-import { CartContext } from '../../context/CartContext'
-import swal from 'sweetalert'
+import { useContext } from "react"
+import { CartContext } from "../../context/CartContext"
+import swal from "sweetalert"
 import "./Cart.css"
+import CartItem from "../carItem/CartItem"
+import { Button } from "@mui/material"
 
 const Cart = () => {
+  const { cart, clearCart } = useContext(CartContext)
 
-   const { cart, clearCart } = useContext( CartContext )
-
-   const limpiar = ()=>{
-
+  const limpiar = () => {
     swal({
       title: "Seguro quieres borrar todo el carrito?",
       text: "Una vez que lo hagas no podras recuperar la informacion!",
       icon: "warning",
       buttons: ["no", "si"],
       dangerMode: true,
-    })
-    .then((willDelete) => {
+    }).then((willDelete) => {
       if (willDelete) {
         swal("Carrito borrado con exito!", {
           icon: "success",
-        });
+        })
         clearCart()
       } else {
-        swal("Cancelaste la operacion");
+        swal("Cancelaste la operacion")
       }
-    });
-
-   }
+    })
+  }
 
   return (
-    <div className='cart-container'>
-      {
-        cart.map( item => (
-          <div key={item.id} >
-            <h2>{item.name}</h2>
-            <h2>{item.price}</h2>
-            <h2>{item.quantity} unidades</h2>
-          </div>
-        ))
-      }
+    <div className="cart-container">
+      <div className="container-items">
+        {cart.map((item) => (
+          <CartItem key={item.id} item={item} />
+        ))}
+      </div>
 
-      <div>
-        <h2>Quieres limpiar el carrito</h2>
-        <button onClick={()=> limpiar()} >Si, limpiar carrito</button>
+      <div className="cart-info">
+        <h2>Descripcion del carrito:</h2>
+        <h3>Cantidad de productos: </h3>
+        <h3>Precio total: </h3>
+        <h3>Descuento: </h3>
+        <h3>Precio final: </h3>
+
+        <div className="btn-cart">
+          <Button variant="contained">Comprar</Button>
+          <Button onClick={() => limpiar()} variant="contained">
+            Vaciar carrito
+          </Button>
+        </div>
       </div>
     </div>
   )

@@ -11,7 +11,7 @@ import "./Item.css"
 
 const Item = ({ element }) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345}}>
       <CardMedia
         component="img"
         height="200"
