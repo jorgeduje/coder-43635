@@ -1,9 +1,14 @@
 import { Button } from "@mui/material"
+import { useEffect } from "react"
 import { useState } from "react"
 import "./ItemCount.css"
 
 const ItemCount = ({ stock, initial = 1, onAdd }) => {
   const [counter, setCounter] = useState(initial)
+
+  useEffect( ()=>{
+    setCounter(initial)
+  }, [initial])
 
   const increment = () => {
     if (counter < stock) {
@@ -12,7 +17,7 @@ const ItemCount = ({ stock, initial = 1, onAdd }) => {
   }
 
   const decrement = () => {
-    if (counter > initial) {
+    if (counter > 1) {
       setCounter(counter - 1)
     }
   }
