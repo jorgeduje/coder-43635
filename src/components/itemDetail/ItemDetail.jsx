@@ -5,7 +5,7 @@ import swal from "sweetalert"
 import styles from "./ItemDetail.module.css"
 
 const ItemDetail = ({ product }) => {
-  const { addToCart } = useContext(CartContext)
+  const { addToCart, getQuantityBiId } = useContext(CartContext)
 
   const onAdd = (quantity) => {
     addToCart({
@@ -21,6 +21,9 @@ const ItemDetail = ({ product }) => {
     })
   }
 
+  const quantity = getQuantityBiId(product.id)
+  console.log(quantity)
+
   return (
     <div className={styles.containerItemDetail}>
       <div className={styles.containerImage}>
@@ -32,7 +35,7 @@ const ItemDetail = ({ product }) => {
           <h2 style={{fontFamily: "monospace"}}><span style={{fontSize:"23px"}}>Descripcion:</span> {product.description}</h2>
           <h2 style={{fontFamily: "monospace"}}><span style={{fontSize:"23px"}}>Precio:</span> ${product.price}.-</h2>
 
-        <ItemCount onAdd={onAdd} stock={product.stock} />
+        <ItemCount onAdd={onAdd} stock={product.stock} initial={quantity} />
       </div>
     </div>
   )
