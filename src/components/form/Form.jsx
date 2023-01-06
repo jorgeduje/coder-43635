@@ -9,32 +9,13 @@ const Form = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    
 
     console.log(userData)
   }
 
 
-//   const handleChangeName = (event) => {
-//     setUserData( {...userData, name: event.target.value } )
-//   }
 
-//   const handleChangeLastName = (event)=>{
-
-//       setLastName(event.target.value)
-
-//   }
-
-const handleKey = ( event )=>{
-    
-    if(event.key !== " " ){
-
-        console.log(event.key)
-        
-    }else{
-        event.preventDefault() // NO LA CAPTURA EL ONCHANGE Y NO SE ESCRIBE EN EL INPUT
-    }
-
-}
 
   return (
     <div>
@@ -45,7 +26,6 @@ const handleKey = ( event )=>{
           name="name"
           value={userData.name}
           onChange={(event)=> setUserData( {...userData, name: event.target.value })}
-          onKeyDown={handleKey}
         />
         <input
           type="text"
