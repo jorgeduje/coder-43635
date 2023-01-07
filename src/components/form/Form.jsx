@@ -27,11 +27,11 @@ const Form = ({ cart, getTotalPrice, setOrderId, clearCart }) => {
 
     addDoc(orderCollection, order).then((res) => setOrderId(res.id))
 
-    cart.map((product) => {
+    cart.map((product) => (
       updateDoc(doc(db, "products", product.id), {
         stock: product.stock - product.quantity,
       })
-    })
+    ))
 
     clearCart()
   }
