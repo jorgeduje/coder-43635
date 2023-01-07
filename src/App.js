@@ -8,6 +8,7 @@ import Cart from "./components/cart/Cart";
 
 import CartContextProvider from "./context/CartContext";
 import Form from "./components/form/Form";
+import FormikFormulario from "./components/formik/FormikFormulario";
 
 
 function App() {
@@ -32,6 +33,8 @@ function App() {
           <Route path="/checkout" element={ <Form /> } />
 
           <Route path="/cart" element={ <Cart /> } />
+
+          <Route path="/formik" element={ <FormikFormulario /> } />
 
           <Route path="*" element={ <h2>Lo siento esta url no existe</h2> } />
 
