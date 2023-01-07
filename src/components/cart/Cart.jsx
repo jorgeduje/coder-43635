@@ -29,8 +29,6 @@ const Cart = () => {
   }
 
   useEffect(() => {
-    // const productSelected = products.find( producto => producto.id === parseInt(id) )
-    // setProduct(productSelected)
     if (orderId) {
       const orderCollection = collection(db, "orders")
       const ref = doc(orderCollection, orderId)
@@ -43,8 +41,6 @@ const Cart = () => {
       })
     }
   }, [orderId])
-
-  console.log(order)
 
   const limpiar = () => {
     swal({

@@ -8,17 +8,8 @@ import axios from "axios"
 import { useEffect } from "react"
 
 const FormikFormulario = () => {
-  //   const datos = {
-  //     name: "",
-  //     email: "",
-  //     password: "",
-  //   }
 
   useEffect( ()=>{
-    // const data = fetch("https://jsonplaceholder.typicode.com/posts", {
-    //   method: "GET"
-    // })
-    // data.then( res => res.json()).then(res => console.log(res))
 
     axios.get("https://jsonplaceholder.typicode.com/posts")
     .then( res => console.log(res.data) )

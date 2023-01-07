@@ -1,4 +1,3 @@
-// rafce --> export default || rafc --> export nombrado
 
 import { useContext } from "react"
 import "./CartWidget.css"

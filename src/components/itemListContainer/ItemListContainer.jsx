@@ -22,8 +22,6 @@ const ItemListContainer = () => {
   const [items, setItems] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-  console.log(categoryName)
-
   useEffect(() => {
     setIsLoading(true)
 

@@ -6,7 +6,7 @@ import "./ItemCount.css"
 const ItemCount = ({ stock, initial = 1, onAdd }) => {
   const [counter, setCounter] = useState(initial)
 
-  useEffect( ()=>{
+  useEffect(() => {
     setCounter(initial)
   }, [initial])
 
@@ -41,6 +41,3 @@ const ItemCount = ({ stock, initial = 1, onAdd }) => {
 }
 
 export default ItemCount
-
-// condicion ? "aca lo true" : null
-// condicion && "aca lo true"

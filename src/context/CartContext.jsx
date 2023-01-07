@@ -3,7 +3,6 @@ import { createContext, useState } from "react"
 export const CartContext = createContext()
 
 const CartContextProvider = ({ children }) => {
-
   const [cart, setCart] = useState([])
 
   const addToCart = (element) => {
@@ -15,7 +14,6 @@ const CartContextProvider = ({ children }) => {
             quantity: element.quantity,
           }
           return newProduct
-          
         } else {
           return product
         }
@@ -31,50 +29,29 @@ const CartContextProvider = ({ children }) => {
     return cart.some((elemento) => elemento.id === item.id)
   }
 
-  const clearCart = ()=>{
-
-    setCart( [] )
-
+  const clearCart = () => {
+    setCart([])
   }
 
-  const getQuantityBiId = ( id )=>{
-
-    const product = cart.find( elemento => elemento.id === id)
+  const getQuantityBiId = (id) => {
+    const product = cart.find((elemento) => elemento.id === id)
 
     return product?.quantity
-
   }
 
-  const getTotalPrice = ()=>{
-
-    
-    // let acc = 0
-
-    // for (let i = 0; i < cart.length; i++) {
-
-    //   acc = acc  + ( cart[i].price * cart[i].quantity)
-
-    // }
-
-    // return acc
-    
-    const total = cart.reduce( (acc, element)=>{
-      return acc + (element.price * element.quantity)
-    }, 0 )
+  const getTotalPrice = () => {
+    const total = cart.reduce((acc, element) => {
+      return acc + element.price * element.quantity
+    }, 0)
 
     return total
-
   }
 
+  const deleteProductById = (id) => {
+    const newArray = cart.filter((product) => product.id !== id) // []
 
-  const deleteProductById = (id)=>{
-
-    const newArray = cart.filter( product => product.id !== id ) // []
-
-    setCart( newArray )
-
+    setCart(newArray)
   }
-
 
   const data = {
     cart,
@@ -82,17 +59,10 @@ const CartContextProvider = ({ children }) => {
     clearCart,
     getQuantityBiId,
     getTotalPrice,
-    deleteProductById
+    deleteProductById,
   }
 
-  return (
-      <CartContext.Provider value={data}>
-        {children}
-      </CartContext.Provider>
-  )
-
+  return <CartContext.Provider value={data}>{children}</CartContext.Provider>
 }
 
 export default CartContextProvider
-
-// addToCart( {} )
