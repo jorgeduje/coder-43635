@@ -97,7 +97,7 @@ const ItemListContainer = () => {
         isLoading ? <DotLoader
         color={"purple"}
         cssOverride={override}
-        size={150}
+        size={100}
         aria-label="Loading Spinner"
         data-testid="loader"
       /> : <ItemList items={items} />
