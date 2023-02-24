@@ -26,7 +26,8 @@ const Form = ({ cart, getTotalPrice, setOrderId, clearCart }) => {
     const orderCollection = collection(db, "orders")
 
     addDoc(orderCollection, order).then((res) => setOrderId(res.id))
-
+    // //addDoc(itemCollection, post)
+    // setDoc(doc(itemCollection, "blogs"), post)
     cart.map((product) => (
       updateDoc(doc(db, "products", product.id), {
         stock: product.stock - product.quantity,
